@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Time Shuttle</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/time-shuttle.css">
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/time-shuttle.js"></script>
+    <script src="./js/time-shuttle-api.js"></script>
+</head>
+
+<body>
+
+    <div class="container-fluid fullHeight">
+        <h1>Time Shuttle</h1>
+        <div class="row fullHeightInContainer">
+            <div class="col-sm-4 leftPanel">
+                <div class="alert alert-info">Add all your page names into the shuttle and try the generate button.
+                    <br> Click a page name in the shuttle to preview the result.
+                </div>
+                <div class="input-group input-group-sm mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Simple page name:</span>
+                    </div>
+                    <input id="pageNameInput" type="text" class="form-control" aria-label="Small" placeholder="Example: bond-revenue-source"
+                        aria-describedby="inputGroup-sizing-sm">
+
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-md btn-danger" onclick="addToShuttle()">Add to Shuttle</button>
+                    </div>
+                </div>
+                <div class="input-group input-group-sm mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Plural page name:</span>
+                    </div>
+
+                    <input id="pluralNameInput" type="text" class="form-control" aria-label="Small" placeholder="Plural Example: bondRevenueSources"
+                        aria-describedby="inputGroup-sizing-sm">
+
+                </div>
+                <div class="card listCard">
+                    <div class="card-header">
+                        The pages in Shuttle
+                    </div>
+                    <div id="pageShuttle" class="list-group">
+                        <button type="button" class="list-group-item list-group-item-action">
+
+                            <img src="./image/svg/circle-check.svg" alt="Generated" class="hiddenIcon generatedIndicator">
+                            <img src="./image/svg/delete.svg" alt="Generated" class="hiddenIcon deleteIcon">
+                            <data value="bond-revenue-source">bond-revenue-source</data>
+                        </button>
+
+
+                    </div>
+                </div>
+                <div class="divPaddingTop">
+                    <button onclick="validatePageNamess()" type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Name Format Notification"
+                        data-content="The names should be in format 'word1-word2-word3'">
+                        Click to Validate
+                    </button>
+                    <button type="button" class="btn btn-lg btn-danger generateButton" onclick="generatePages(pageNames)">Click to Generate</button>
+                </div>
+
+            </div>
+            <div class="col-sm-8 rightPanel">
+                <iframe id="previewIframe" src="" frameborder="0" class="iframeFullArea"></iframe>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+</html>
